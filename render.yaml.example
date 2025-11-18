@@ -1,0 +1,56 @@
+# Render Blueprint Example
+# Copy this file to render.yaml and customize for your deployment
+# See: https://render.com/docs/blueprint-spec
+
+services:
+  # MySQL Database Service
+  - type: pserv
+    name: mysql
+    runtime: docker
+    plan: starter  # Options: starter, standard, pro, pro-plus, pro-max
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /  # Health check is built into container
+    envVars:
+      # Required: Set these in Render dashboard as secrets
+      - key: MYSQL_ROOT_PASSWORD
+        sync: false  # Set manually in dashboard
+        # value: ${MYSQL_ROOT_PASSWORD}  # Or use secret reference
+      
+      # Optional: Database initialization
+      - key: MYSQL_DATABASE
+        value: myapp
+      
+      # Optional: Application user
+      - key: MYSQL_USER
+        value: appuser
+      - key: MYSQL_PASSWORD
+        sync: false  # Set manually in dashboard
+        # value: ${MYSQL_PASSWORD}  # Or use secret reference
+    
+    # Add persistent disk for data storage
+    # Note: Disks must be added via Render dashboard after service creation
+    # Minimum recommended: 10GB
+
+  # Optional: Backup Cron Job
+  # Uncomment and configure to enable automated backups
+  # - type: cron
+  #   name: mysql-backup
+  #   schedule: "0 2 * * *"  # Daily at 2 AM UTC
+  #   runtime: docker
+  #   dockerfilePath: ./backups/Dockerfile
+  #   dockerContext: .
+  #   envVars:
+  #     - key: MYSQL_HOST
+  #       value: mysql  # Use your MySQL service name
+  #     - key: MYSQL_USER
+  #       value: root
+  #     - key: MYSQL_PASSWORD
+  #       sync: false  # Set manually
+  #     - key: RETENTION_DAYS
+  #       value: "7"
+  #     - key: COMPRESS
+  #       value: "true"
+  #   # Mount a disk for backup storage
+  #   # Note: Disks must be added via Render dashboard
+
