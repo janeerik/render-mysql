@@ -2,7 +2,7 @@
 
 This is a template repository for running [MySQL](https://www.mysql.com) on Render. 
 
-* It uses the [official](https://hub.docker.com/r/mysql/mysql-server) MySQL Docker image.
+* It uses the [official](https://hub.docker.com/r/mysql/mysql) MySQL Docker image.
 
 * [Render Disks](https://render.com/docs/disks) provide fast, persistent SSD storage for your database.
 
