@@ -29,7 +29,7 @@ This is a production-ready template repository for running [MySQL](https://www.m
 
 ## MySQL Version
 
-This repository uses **MySQL 8.4.7**. You can change the version in the `Dockerfile` by modifying the `FROM` line. Available versions: https://hub.docker.com/r/mysql/mysql/tags/
+This repository uses **MySQL 8.4.9**. You can change the version in the `Dockerfile` by modifying the `FROM` line. Available versions: https://hub.docker.com/r/mysql/mysql/tags/
 
 ## Quick Start
 

@@ -1,6 +1,6 @@
 # You can change this to a newer version of MySQL available at
 # https://hub.docker.com/r/mysql/mysql/tags/
-FROM mysql:8.4.7
+FROM mysql:8.4.9
 
 # Note: The MySQL image is minimal and doesn't include package managers.
 # Timezone warnings are non-critical - MySQL functions normally without full timezone data.

@@ -1,7 +1,7 @@
 # MySQL Backup Container
 # This container can be used for scheduled backups or one-time backup operations
 # Build from project root: docker build -f backups/Dockerfile -t mysql-backup .
-FROM mysql:8.4.7
+FROM mysql:8.4.9
 
 # Note: The MySQL image is minimal and doesn't include package managers.
 # gzip and find are already available in the base MySQL image, so no installation needed.
